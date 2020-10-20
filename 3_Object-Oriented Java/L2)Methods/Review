@@ -33,3 +33,88 @@ Instructions
     5.
     Congratulations! You’ve made a basic SavingsAccount.
     If you want, you can add more functionality to this! What other instance fields might you want to keep track of? What might a toString() look like for this class?
+
+//SavingsAccount.Java
+    public class SavingsAccount {
+        int balance;
+
+        public SavingsAccount(int initialBalance){
+            balance = initialBalance;
+        }
+
+        public static void main(String[] args){
+            SavingsAccount savings = new SavingsAccount(2000);
+
+            //Check balance:
+            System.out.println("Hello!");
+            System.out.println("Your balance is "+savings.balance);
+            
+            //Withdrawing:
+            int afterWithdraw = savings.balance - 300;
+            savings.balance = afterWithdraw;
+            System.out.println("You just withdrew "+300);
+            
+            //Check balance:
+            System.out.println("Hello!");
+            System.out.println("Your balance is "+savings.balance);
+            
+            //Deposit:
+            int afterDeposit = savings.balance + 600;
+            savings.balance = afterDeposit;
+            System.out.println("You just deposited "+600);
+            
+            //Check balance:
+            System.out.println("Hello!");
+            System.out.println("Your balance is "+savings.balance);
+            
+            //Deposit:
+            int afterDeposit2 = savings.balance + 600;
+            savings.balance = afterDeposit2;
+            System.out.println("You just deposited "+600);
+            
+            //Check balance:
+            System.out.println("Hello!");
+            System.out.println("Your balance is "+savings.balance);
+            
+        }       
+    }
+
+
+// it changed as bleow as we create method to reduce same codes.
+    public class SavingsAccount {
+        int balance;
+
+        public SavingsAccount(int initialBalance){
+            balance = initialBalance;
+        }
+        public void checkBalance() {
+        //Check balance:
+            System.out.println("Hello!");
+            System.out.println("Your balance is "+ balance);
+        }
+        public void deposit(int amountToDeposit) {
+        //Deposit:
+            int afterDeposit = balance + amountToDeposit;
+            balance = afterDeposit;
+            System.out.println("You just deposited " + amountToDeposit);
+        }
+        public int withdraw(int amountToWithdraw) {
+            int afterWithdraw = balance - amountToWithdraw;
+            balance = afterWithdraw;
+            System.out.println("You just withdraw " + amountToWithdraw);
+            return amountToWithdraw;
+        }  
+        public String toString() {
+            return "Your final balance is " + balance;
+        }
+        public static void main(String[] args){
+            SavingsAccount savings = new SavingsAccount(2000);
+            savings.checkBalance();
+            savings.deposit(500);
+            savings.checkBalance();
+            savings.withdraw(700);
+            System.out.println(savings);
+        }       
+    }
+
+  
